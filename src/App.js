@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Createform from "./Component/Main/Create_form/index";
+import Showdata from "./Component/Main/Show_data/index";
+import Updateform from "./Component/Main/Update_form/index";
+import Sidebar from "./Component/Sidebar/index";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <div className="page">
+        
+        <Router>
+        <Routes>
+          <Route exact path="/" element={<Sidebar />}>
+            <Route path="/Createform" element={<Createform />} />
+            <Route path="/Showdata" element={<Showdata />} />
+            <Route path="/Updateform" element={<Updateform />} />
+          </Route>
+        </Routes>
+      </Router>
+        </div>
+    
+    
   );
 }
+
 
 export default App;
