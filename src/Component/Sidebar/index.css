@@ -1,6 +1,7 @@
 .sidebar {
   display: grid;
   grid-template-columns: 20vw auto;
+  grid-column-gap: 2px;
 }
 
 .side-buton {

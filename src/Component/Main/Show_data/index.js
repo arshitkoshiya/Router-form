@@ -6,12 +6,13 @@ import { useNavigate } from "react-router-dom";
 export default function Showdata() {
   const [output, setoutput] = useState([]);
   const navigate = useNavigate();
+  const fatchData = () => {axios
+    .get("https://61fd0f43f62e220017ce42d5.mockapi.io/Routerform")
+    .then((response) => {
+      setoutput(response.data);
+    });}
   useEffect(() => {
-    axios
-      .get("https://61fd0f43f62e220017ce42d5.mockapi.io/Routerform")
-      .then((response) => {
-        setoutput(response.data);
-      });
+    fatchData();
   }, []);
 
   const dataDelete = (id) => {
@@ -23,8 +24,9 @@ export default function Showdata() {
       axios
         .delete(`https://61fd0f43f62e220017ce42d5.mockapi.io/Routerform/${id}`)
         .then(() => {
+          fatchData();
           /* navigate("../Showdata"); */
-          window.location.reload();
+          /* window.location.reload(); */
         });
     }
   };
