@@ -1,8 +1,16 @@
 import React from "react";
 import "./index.css";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function Sidebar() {
+  function Link(props) {
+		return (
+			<NavLink
+				className={({ isActive }) => (isActive ? "active" : "")}
+				{...props}
+			/>
+		);
+	}
   return (
     <div className="sidebar">
       <div className="side-buton">
